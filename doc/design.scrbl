@@ -59,7 +59,7 @@ A UX will be described using a grammar like this one:
      "Select folder by name")
     ("Begin session"
      ("Generate name"
-      "Create Git branch"))]
+      "Start Git branch"))]
 
 This is equivalent to the more familiar graphical flow visualizations below.
 
