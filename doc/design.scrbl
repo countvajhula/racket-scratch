@@ -115,7 +115,7 @@ A few further observations on the notation:
 
 @UX[("Load project"
      (stages ("Recall recent projects" "Recall saved projects")
-             ((link "Choose folder"))))]
+             ("Choose folder")))]
 
 @itemlist[#:style 'unordered
   @item{When a lower-level flow is shared in common by many high-level flows, instead of duplicating the shared flow we simply link to its definition.}
