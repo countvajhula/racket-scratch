@@ -148,6 +148,8 @@ Let's now comprehensively define all of Mindstream's UX flows using the above no
 
 @subsection{High Level}
 
+These "high level" flows are @function{interactive} and exposed to the user via keybindings in @function{mindstream-mode}.
+
 @subsubsection{New Project From Template}
 
 Start a new @tech{anonymous project} at @variable{mindstream-path}.
@@ -250,6 +252,8 @@ Add all new files that aren't Gitignored and record a fresh commit. This happens
 
 @subsection{Low Level}
 
+These flows are used in various features but aren't directly exposed to the user.
+
 @subsubsection{Begin Project}
 
 @tech{Projects} always start @tech[#:key "anonymous project"]{anonymous}. @tech{Templates} are copied to a new folder created in @variable{mindstream-path} in a subfolder with the same name as the template, so for instance, a new Python project would be under @variable{mindstream-path}@code{/python/<unique-name>}.
@@ -303,6 +307,8 @@ Merge the branch into its base branch as a squashed commit, leaving the original
              ("Merge into base")))]
 
 @subsection{Primitives}
+
+These are general purpose utilities used in the higher level flows.
 
 @subsubsection{Choose Folder}
 
