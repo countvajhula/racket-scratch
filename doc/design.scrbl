@@ -31,6 +31,19 @@ Within @variable{mindstream-path}, anonymous projects are filed under the name o
     2024-05-26-435e774ec696d9728ae2522cc64bc087f0d222bf
 }
 
+@section{Changes From Initial Design}
+
+@itemlist[#:style 'unordered
+  @item{Sessions are now branches in a repo rather than (effectively) entire repos -- they can be begun anywhere, saved, loaded, merged.}
+  @item{There can be more than one anonymous project active at any time per major mode (formerly just one).}
+  @item{Anonymous projects are categorized by template (formerly flat).}
+  @item{Saving an anonymous project moves (rather than copies) the project so that all open project buffers remain open.}
+  @item{Load project is no longer provided as a feature.}
+  @item{Ability to view open sessions (and without maintaining global state).}
+  @item{Ability to label and annotate versions (via tags).}
+  @item{More settings (change branch, merge, etc.) where completion is needed.}
+]
+
 @section{Concepts}
 
 @definition["Project"]{A Git version-controlled folder.}
@@ -163,6 +176,8 @@ Visit an open Mindstream session.
 @UX[("Open session"
      ("List projects with open sessions" (link "Choose folder path")))]
 
+We could do this just by checking the Git branch that each open buffer is on, to avoid maintaining any global registry of sessions (which would be bug-prone).
+
 @subsubsection{Open Anonymous Session}
 
 Visit an open anonymous session. Choose from paths that are relative to @variable{mindstream-path}, e.g. @code{racket/2024-05-26-06b432} instead of @code{~/tmp/mindstream/racket/2024-05-26-06b432}.
@@ -212,6 +227,8 @@ Save a project to a permanent location, defaulting to @code{mindstream-save-sess
      ((link "Choose folder") (link "Copy folder") "Close anonymous project" (link "Open file") (link "Begin session")))
     ("Close anonymous project"
      ("Close all open buffers in project"))]
+
+It may be wise to @emph{move} the anonymous project to its new location (instead of just copying it) so that Emacs will implicitly keep all the project buffers open. Otherwise, it would be useful to at least replicate this behavior.
 
 @subsubsection{Load Project}
 
