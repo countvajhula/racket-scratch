@@ -168,13 +168,21 @@ If we've configured a unique anonymous project per template, then starting a new
 Enter an @tech{anonymous project} for the current major mode, creating a new one if necessary. Being context-sensitive, this is intended to be the quickest way to enter a relevant Mindstream scratch session.
 
 @UX[("Enter anonymous project"
-     ("Identify MRU anonymous project for major mode"
+     ("Infer template"
+      "Visit project"))
+    ("Infer template"
+     "Select preferred template for major mode"
+     "Find usable template for major mode")
+    ("Visit project"
+     "Visit MRU project for template"
+     ((link (to "Load anonymous project")
+            "Open active anonymous projects")
+      "Visit MRU project for template"))
+    ("Visit MRU project for template"
+     ("Identify MRU project"
       "Identify MRU file"
-      (link "Open file"))
-     ("Select template for major mode" (link "Begin project")))
-    ("Select template for major mode"
-     (link "Infer template")
-     (link "Choose template"))]
+      (link "Open file")))
+    ]
 
 @subsubsection{Archive Project}
 
@@ -281,6 +289,12 @@ These flows are used in various features but aren't directly exposed to the user
      (link "Choose folder by name")
      (link "Copy folder"))]
 
+@subsubsection{Load Anonymous Project}
+
+@UX[("Load anonymous project"
+     ((link "Select starting file")
+      (link "Begin session")))]
+
 @subsubsection{Begin Session}
 
 In the special case where we are beginning a session in a new @tech{anonymous project} via @secref["Begin_Project"], we use the branch name @variable{mindstream-main}. This is because most such sessions are likely to either remain anonymous or be saved at @variable{mindstream-save-session-path} purely as "streams," rather than merged into traditional branches with annotated commits, and thus the initial mindstream session branch is likely to be the "main" or even the only branch.
@@ -288,14 +302,6 @@ In the special case where we are beginning a session in a new @tech{anonymous pr
 @UX[("Begin session"
      ((link "Generate name")
       (link "Start Git branch")))]
-
-@subsubsection{Infer Template}
-
-Infer a template to use for the major mode.
-
-@UX[("Infer template"
-     "Select preferred template for major mode"
-     "Find template for major mode")]
 
 @subsubsection{Choose Template}
 
