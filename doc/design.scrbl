@@ -248,11 +248,9 @@ It may be useful to provide a version of this command that deletes the mindstrea
 Save a project to a permanent location, defaulting to @code{mindstream-save-session-path}.
 
 @UX[("Save project"
-     ((link "Choose folder") (link "Copy folder") "Close anonymous project" (link "Open file") (link "Begin session")))
-    ("Close anonymous project"
-     ("Close all open buffers in project"))]
+     ((link "Choose folder") (link "Move folder")))]
 
-It may be wise to @emph{move} the anonymous project to its new location (instead of just copying it) so that Emacs will implicitly keep all the project buffers open. Otherwise, it would be useful to at least replicate this behavior.
+We @emph{move} rather than copy the anonymous project to its new location so that Emacs will implicitly keep all the project buffers open. It also ensures that the anonymous path can be appropriately managed according to the user's @variable{mindstream-persistent} and @variable{mindstream-unique} customizations.
 
 @subsubsection{Load Project}
 
