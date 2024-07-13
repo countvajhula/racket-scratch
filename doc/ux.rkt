@@ -61,6 +61,7 @@
 
 (define-syntax-parser step
   [(_ ((~datum link) f)) #'(nonterm (secref (link-identifier f)))]
+  [(_ ((~datum link) ((~datum to) f) text)) #'(nonterm (seclink (link-identifier f) text))]
   [(_ ((~datum esc) f)) #'f]
   [(_ (~datum AND)) #'(litchar "&")]
   [(_ ((~datum or) e ...)) #'(BNF-alt (step e) ...)]

@@ -54,6 +54,8 @@ Within @variable{mindstream-path}, anonymous projects are filed under the name o
 
 @definition["Anonymous project"]{A project at @variable{mindstream-path} whose setup is abstracted by Mindstream.}
 
+@definition["Saved project"]{A project that began @techlink[#:key "anonymous project"]{anonymous} and was given a name and saved at some point, and is typically located at @variable{mindstream-save-session-path}.}
+
 @definition["Anonymous session"]{A session beginning at the current state whose setup is abstracted by Mindstream.}
 
 @definition["Saved session"]{A named session, any Git branch whose name begins with @code{mindstream-} and where the suffix was given by the user rather than automatically generated as part of beginning a session.}
@@ -156,7 +158,10 @@ Start a new @tech{anonymous project} at @variable{mindstream-path}.
 
 @UX[("New project"
      ((link "Choose template")
+      (link (to "Archive project") "Archive open anonymous projects")
       (link "Begin project")))]
+
+If we've configured a unique anonymous project per template, then starting a new project should archive any that are already open before beginning the new one.
 
 @subsubsection{Enter Anonymous Project}
 
@@ -170,6 +175,15 @@ Enter an @tech{anonymous project} for the current major mode, creating a new one
     ("Select template for major mode"
      (link "Infer template")
      (link "Choose template"))]
+
+@subsubsection{Archive Project}
+
+Move an @tech{anonymous project} at @variable{mindstream-path} to @variable{mindstream-archive-path}.
+
+@UX[("Archive project"
+     "Move folder")]
+
+Note this does not apply to @tech{saved projects}. If we seek to refile any saved projects, we would do that using existing operating system tools like file managers.
 
 @subsubsection{Open Session}
 
