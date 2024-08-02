@@ -39,7 +39,8 @@ Within @variable{mindstream-path}, anonymous projects are filed under the name o
   @item{Anonymous projects are categorized by template (formerly flat).}
   @item{Saving an anonymous project moves (rather than copies) the project so that all open project buffers remain open.}
   @item{Load project is no longer provided as a feature.}
-  @item{Ability to view open sessions (and without maintaining global state).}
+  @item{There is no longer any global state (i.e. eliminates @variable{mindstream-active-sessions})}
+  @item{Ability to view open sessions (without maintaining global state).}
   @item{Ability to label and annotate versions (via tags).}
   @item{More settings (change branch, merge, etc.) where completion is needed.}
 ]
