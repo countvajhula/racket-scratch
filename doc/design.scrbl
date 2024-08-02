@@ -189,7 +189,7 @@ Enter an @tech{anonymous project} for the current major mode, creating a new one
 Move an @tech{anonymous project} at @variable{mindstream-path} to @variable{mindstream-archive-path}.
 
 @UX[("Archive project"
-     "Move folder")]
+     (link "Move folder"))]
 
 Note this does not apply to @tech{saved projects}. If we seek to refile any saved projects, we would do that using existing operating system tools like file managers.
 
@@ -373,6 +373,10 @@ This uses @secref["Completion_with_Short-Circuiting"].
 @subsubsection{Copy Folder}
 
 Copy folder to a given location.
+
+@subsubsection{Move Folder}
+
+Move (i.e. Unix's "rename") folder to a given location. This preserve all open buffers and updates their visited file to their new location.
 
 @subsubsection{Start Git Branch}
 
