@@ -36,6 +36,8 @@ help:
 	@echo "remove-docs - Uninstall docs package"
 	@echo "build-docs - Build self-contained documentation that could be hosted somewhere"
 	@echo "docs - view documentation in a browser"
+	@echo "build-design - Build self-contained documentation for the new design that could be hosted somewhere"
+	@echo "design - view the new design document in a browser"
 
 install-docs:
 	raco pkg install --deps search-auto -n $(PACKAGE-NAME) --link $(DOCS-PATH)
@@ -46,8 +48,14 @@ remove-docs:
 build-docs:
 	scribble ++style $(DOCS-PATH)/assets/css/$(PACKAGE-NAME).css --htmls --dest $(DOCS-PATH) --dest-name output $(DOCS-PATH)/mindstream.scrbl
 
+build-design:
+	scribble ++style $(DOCS-PATH)/assets/css/$(PACKAGE-NAME).css --html --dest $(DOCS-PATH)/design-output --dest-name index $(DOCS-PATH)/design.scrbl
+
 docs: build-docs
 	open $(DOCS-PATH)/output/index.html
+
+design: build-design
+	open $(DOCS-PATH)/design-output/index.html
 
 check-docs-deps:
 	raco setup --no-docs $(DEPS-FLAGS) --pkgs $(PACKAGE-NAME)
@@ -86,4 +94,4 @@ build :
 test: build
 	${CASK} exec ert-runner
 
-.PHONY:	help lint lint+less lint-no-noise lint-noiseless checkdoc build clean install test install-docs remove-docs build-docs docs
+.PHONY:	help lint lint+less lint-no-noise lint-noiseless checkdoc build clean install test install-docs remove-docs build-docs docs build-design design
